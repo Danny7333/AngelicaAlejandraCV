@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angélica Navarro | Comercio Internacional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+	<style>
+	/* Base Styles */
+:root {
+    --primary-blue: #2c3e50;
+    --secondary-blue: #3498db;
+    --light-blue: #ecf0f1;
+    --accent-blue: #2980b9;
+    --dark-blue: #1a252f;
+    --white: #ffffff;
+    --gray: #95a5a6;
+    --light-gray: #f8f9fa;
+    --transition: all 0.3s ease;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--primary-blue);
+    background-color: var(--light-gray);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: var(--primary-blue);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.preloader-spinner {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+.spinner-sector {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 8px solid transparent;
+    mix-blend-mode: overlay;
+    animation: rotate 1.5s ease-in-out infinite;
+}
+
+.spinner-sector-blue {
+    border-top-color: var(--secondary-blue);
+    animation-delay: 0.1s;
+}
+
+.spinner-sector-white {
+    border-top-color: var(--primary-blue);
+    animation-delay: 0.2s;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+    color: var(--white);
+    padding: 3rem 2rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.name-title {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.name-title span {
+    color: var(--secondary-blue);
+    position: relative;
+}
+
+.name-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--secondary-blue);
+    transition: var(--transition);
+}
+
+.name-title:hover::after {
+    width: 120px;
+}
+
+.profession {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    transition: var(--transition);
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.contact-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.contact-item i {
+    color: var(--secondary-blue);
+}
+
+.header-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.decoration-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+.blue-circle {
+    width: 300px;
+    height: 300px;
+    background-color: var(--secondary-blue);
+    top: -100px;
+    right: -100px;
+    animation: float 8s ease-in-out infinite;
+}
+
+.white-circle {
+    width: 200px;
+    height: 200px;
+    background-color: var(--white);
+    bottom: -50px;
+    left: -50px;
+    animation: float 6s ease-in-out infinite reverse;
+}
+
+.decoration-line {
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    background-color: rgba(255, 255, 255, 0.1);
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-link {
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    color: var(--primary-blue);
+    position: relative;
+    transition: var(--transition);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-blue);
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: var(--secondary-blue);
+}
+
+.nav-link:hover::after {
+    width: 60%;
+}
+
+.nav-link.active {
+    color: var(--secondary-blue);
+}
+
+.nav-link.active::after {
+    width: 60%;
+}
+
+/* Main Content */
+.main-content {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+.section {
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.section:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: var(--secondary-blue);
+    transition: var(--transition);
+}
+
+.section:hover::before {
+    width: 8px;
+}
+
+.section-header {
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    position: relative;
+    display: inline-block;
+}
+
+.section-line {
+    height: 3px;
+    width: 80px;
+    background: linear-gradient(to right, var(--secondary-blue), var(--accent-blue));
+    margin-top: 0.5rem;
+    transition: var(--transition);
+}
+
+.section:hover .section-line {
+    width: 100px;
+}
+
+/* Profile Section */
+.profile-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.key-achievements {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.achievement-card {
+    flex: 1 1 200px;
+    background-color: var(--light-blue);
+    padding: 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: var(--transition);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary-blue);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    font-size: 1.5rem;
+}
+
+.achievement-text h3 {
+    font-size: 1.8rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.2rem;
+}
+
+.achievement-text p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin: 0;
+}
+
+/* Education Section */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+    margin: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 2px;
+    background-color: var(--secondary-blue);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding-left: 2rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--white);
+    border: 3px solid var(--secondary-blue);
+    z-index: 1;
+}
+
+.timeline-date {
+    font-weight: 600;
+    color: var(--secondary-blue);
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    background-color: rgba(52, 152, 219, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.timeline-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.timeline-content h4 {
+    font-size: 1rem;
+    color: var(--gray);
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
+.timeline-content ul {
+    margin-left: 1rem;
+}
+
+.timeline-content li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.timeline-content li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-blue);
+    font-weight: bold;
+}
+
+.courses-section {
+    margin-top: 3rem;
+}
+
+.courses-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-blue);
+    position: relative;
+    display: inline-block;
+}
+
+.courses-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--secondary-blue);
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.course-card {
+    background-color: var(--light-blue);
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    transition: var(--transition);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.course-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary-blue);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.course-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-blue);
+}
+
+.course-info p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin: 0;
+}
+
+/* Experience Section */
+.experience-timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 2px;
+    background-color: var(--secondary-blue);
+}
+
+.experience-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 2rem;
+}
+
+.experience-item::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--white);
+    border: 3px solid var(--secondary-blue);
+    z-index: 1;
+}
+
+.experience-date {
+    font-weight: 600;
+    color: var(--secondary-blue);
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    background-color: rgba(52, 152, 219, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.experience-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+    color: var(--primary-blue);
+}
+
+.experience-content h4 {
+    font-size: 1.1rem;
+    color: var(--gray);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.experience-content ul {
+    margin-left: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.experience-content li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.experience-content li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-blue);
+    font-weight: bold;
+}
+
+.experience-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.skill-tag {
+    background-color: var(--light-blue);
+    color: var(--primary-blue);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.skill-tag:hover {
+    background-color: var(--secondary-blue);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* Skills Section */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.skills-column {
+    flex: 1 1 400px;
+}
+
+.skill-item {
+    margin-bottom: 1.5rem;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.skill-info span:first-child {
+    font-weight: 500;
+}
+
+.skill-info span:last-child {
+    color: var(--secondary-blue);
+    font-weight: 600;
+}
+
+.skill-bar {
+    height: 8px;
+    background-color: var(--light-blue);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(to right, var(--secondary-blue), var(--accent-blue));
+    border-radius: 10px;
+    width: 0;
+    transition: width 1.5s ease-in-out;
+}
+
+.additional-skills {
+    margin-top: 3rem;
+}
+
+.additional-skills h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-blue);
+    position: relative;
+    display: inline-block;
+}
+
+.additional-skills h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--secondary-blue);
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+/* Software Section */
+.software-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.software-card {
+    background-color: var(--light-blue);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: var(--transition);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.software-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background-color: var(--white);
+}
+
+.software-logo {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    background-color: var(--secondary-blue);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+}
+
+.software-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.software-stars {
+    color: var(--secondary-blue);
+    font-size: 0.9rem;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 3rem 2rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-contact h3, .footer-social h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.footer-contact h3::after, .footer-social h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--secondary-blue);
+}
+
+.footer-contact p {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-contact i {
+    color: var(--secondary-blue);
+    width: 20px;
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    background-color: var(--secondary-blue);
+    transform: translateY(-3px);
+}
+
+.footer-credits {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-credits p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .name-title {
+        font-size: 2.5rem;
+    }
+    
+    .profession {
+        font-size: 1.2rem;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+    }
+    
+    .section {
+        padding: 1.5rem;
+    }
+    
+    .skills-container {
+        flex-direction: column;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .name-title {
+        font-size: 2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .timeline, .experience-timeline {
+        padding-left: 15px;
+    }
+    
+    .timeline-item, .experience-item {
+        padding-left: 1rem;
+    }
+    
+    .software-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+	</style>
+</head>
+<body>
+    <div class="preloader">
+        <div class="preloader-spinner">
+            <div class="spinner-sector spinner-sector-blue"></div>
+            <div class="spinner-sector spinner-sector-white"></div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="header-content">
+            <h1 class="name-title">ANGÉLICA <span>NAVARRO</span></h1>
+            <p class="profession">Licenciada en Comercio Internacional</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+52-477-274-1459</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>León, Guanajuato, México</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>angcinavarro@hotmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-globe"></i>
+                    <span>www.reallygreatsite.com</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-decoration">
+            <div class="decoration-circle blue-circle"></div>
+            <div class="decoration-circle white-circle"></div>
+            <div class="decoration-line"></div>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#profile" class="nav-link active">Perfil</a></li>
+            <li><a href="#education" class="nav-link">Formación</a></li>
+            <li><a href="#experience" class="nav-link">Experiencia</a></li>
+            <li><a href="#skills" class="nav-link">Habilidades</a></li>
+            <li><a href="#software" class="nav-link">Software</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section id="profile" class="section profile-section">
+            <div class="section-header">
+                <h2>PERFIL PROFESIONAL</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="profile-content">
+                <p>Profesional con criterio firme, visión operativa y capacidad de tomar decisiones que impactan resultados desde el primer trimestre. No solo ejecuto compras: construyo estrategias de abastecimiento que sostienen el crecimiento y protegen la rentabilidad. Sé dónde ajustar, cuándo negociar y cómo responder cuando la operación exige más. No vengo a aprender el proceso; vengo a mejorarlo. Mi experiencia no está en lo que hago, sino en cómo elevo lo que ya existe. Y si algo me define, es que donde otros compran, yo optimizo.
+
+</p>
+
+                
+                <div class="key-achievements">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="achievement-text">
+                            <h3>+7 Años</h3>
+                            <p>Experiencia profesional</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <div class="achievement-text">
+                            <h3>20+</h3>
+                            <p>Proveedores internacionales gestionados</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="achievement-text">
+                            <h3>36</h3>
+                            <p>Comedores industriales coordinados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section education-section">
+            <div class="section-header">
+                <h2>FORMACIÓN ACADÉMICA</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2007 – 2012</div>
+                    <div class="timeline-content">
+                        <h3>Licenciatura en Comercio Internacional</h3>
+                        <h4>Universidad EPCA</h4>
+                        <ul>
+                            <li>Formación integral con enfoque en comercio exterior, logística internacional y tratados comerciales.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2005 – 2007</div>
+                    <div class="timeline-content">
+                        <h3>Técnico Superior Universitario en Contabilidad</h3>
+                        <h4>Escuela Comercial Bancaria de León</h4>
+                        <ul>
+                            <li>Formación sólida en principios contables, registros financieros, análisis de estados financieros y manejo de software contable.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="courses-section">
+                <h3>Cursos y Conferencias</h3>
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        <div class="course-info">
+                            <h4>Excel Avanzado</h4>
+                            <p>Dominio de funciones, tablas dinámicas, macros y automatización de tareas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div class="course-info">
+                            <h4>Seminario de Valoración Aduanera y Reglas de Origen</h4>
+                            <p>Enfoque en clasificación arancelaria y normativas del comercio internacional.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <div class="course-info">
+                            <h4>Curso de Schoology</h4>
+                            <p>Capacitación en el uso de la plataforma virtual de aprendizaje para gestión educativa.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <div class="course-info">
+                            <h4>Seminario: "La Suprema Corte de Justicia como Tribunal Constitucional en México"</h4>
+                            <p>Análisis del papel de la SCJN en el marco jurídico nacional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section experience-section">
+            <div class="section-header">
+                <h2>EXPERIENCIA PROFESIONAL</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-date">Ago. 2023 – Ago. 2024</div>
+                    <div class="experience-content">
+                        <h3>Gerente de Compras</h3>
+                        <h4>Alimentación Empresarial Mayan</h4>
+                        <ul>
+                            <li>Implementación estratégica del sistema ISO 9001:2015 en compras</li>
+                            <li>Ejecución de auditorías internas ISO 9001:2015</li>
+                            <li>Gestión integral de compras directas e indirectas</li>
+                            <li>Formulación y ejecución de estrategias de abastecimiento</li>
+                            <li>Coordinación logística multisitio (36 comedores industriales)</li>
+                            <li>Desarrollo y homologación de proveedores estratégicos</li>
+                            <li>Liderazgo y capacitación de equipos de compras de alto rendimiento</li>
+                            <li>Diseño e implementación de políticas corporativas de compras</li>
+                            <li>Supervisión operativa y control estratégico de almacenes</li>
+                            <li>Análisis de mercado y gestión dinámica de precios e insumos</li>
+                        </ul>
+                        
+                        <div class="experience-skills">
+                            <div class="skill-tag">ISO 9001:2015</div>
+                            <div class="skill-tag">Gestión de Compras</div>
+                            <div class="skill-tag">Liderazgo</div>
+                            <div class="skill-tag">Logística</div>
+                            <div class="skill-tag">Estrategia</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-date">Feb. 2022 – Jun. 2023</div>
+                    <div class="experience-content">
+                        <h3>Coordinadora de Compras</h3>
+                        <h4>Suelas Esmar</h4>
+                        <ul>
+                            <li>Diseño e implementación del puesto de compras</li>
+                            <li>Planeación estratégica del departamento de compras</li>
+                            <li>Gestión integral de proveedores</li>
+                            <li>Optimización de procesos de abastecimiento</li>
+                            <li>Supervisión documental y control administrativo de compras</li>
+                            <li>Coordinación de programación y pagos a proveedores</li>
+                        </ul>
+                        
+                        <div class="experience-skills">
+                            <div class="skill-tag">Coordinación</div>
+                            <div class="skill-tag">Optimización</div>
+                            <div class="skill-tag">Proveedores</div>
+                            <div class="skill-tag">Abastecimiento</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-date">Feb. 2022 – Jun. 2023</div>
+                    <div class="experience-content">
+                        <h3>Especialista en Importaciones</h3>
+                        <h4>Fabricas de calzado Andrea S.A. de C.V.</h4>
+                        <ul>
+                            <li>Gestión estratégica de proveedores internacionales (mas de 20 proveedores)</li>
+                            <li>Negociación de precios y condiciones comerciales</li>
+                            <li>Generación y administración de órdenes de compra</li>
+                            <li>Control documental en procesos de importación</li>
+                            <li>Coordinación logística y seguimiento de embarques</li>
+                            <li>Negociación de términos de pago con proveedores extranjeros</li>
+                            <li>Planeación y ejecución de reabastecimiento mediante sistemas internos</li>
+                            <li>Uso de sistemas especializados en control y trazabilidad de inventarios</li>
+                            <li>Coordinación de distribución logística Inter almacenes</li>
+                        </ul>
+                        
+                        <div class="experience-skills">
+                            <div class="skill-tag">Importaciones</div>
+                            <div class="skill-tag">Negociación</div>
+                            <div class="skill-tag">Logística Internacional</div>
+                            <div class="skill-tag">Proveedores</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-date">Feb. 2022 – Jun. 2023</div>
+                    <div class="experience-content">
+                        <h3>Asistente de Gerencia Comercial</h3>
+                        <h4>Corporación Castañeda, S.C. (Agencia Aduanal)</h4>
+                        <ul>
+                            <li>Gestión de documentos de importaciones y exportaciones</li>
+                            <li>Gestionar la negociación, contacto y mantenimiento de forwarders</li>
+                            <li>Atención personalizada a clientes</li>
+                            <li>Elaborar y archivar los documentos con orden clasificado y control</li>
+                        </ul>
+                        
+                        <div class="experience-skills">
+                            <div class="skill-tag">Aduanas</div>
+                            <div class="skill-tag">Documentación</div>
+                            <div class="skill-tag">Atención a Clientes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section skills-section">
+            <div class="section-header">
+                <h2>HABILIDADES PROFESIONALES</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skills-column">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Negociación estratégica</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-level="95"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Optimización de cadena de suministro</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-level="90"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Reducción de costos</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-level="88"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Gestión de proveedores</span>
+                            <span>93%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-level="93"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>ISO 9001:2015</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-level="92"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skills-column">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Análisis de mercado</span>
+                            <span>87%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-level="87"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>KPIs para compras</span>
+                            <span>91%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-level="91"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Gestión de inventarios</span>
+                            <span>89%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-level="89"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Toma de decisiones</span>
+                            <span>94%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-level="94"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Liderazgo de equipos</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-level="90"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="additional-skills">
+                <h3>Otras Habilidades</h3>
+                <div class="tags-container">
+                    <div class="skill-tag">Control documental</div>
+                    <div class="skill-tag">Cumplimiento normativo</div>
+                    <div class="skill-tag">Mejora continua</div>
+                    <div class="skill-tag">Cultura colaborativa</div>
+                    <div class="skill-tag">Trabajo bajo presión</div>
+                    <div class="skill-tag">Políticas de compras</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="software" class="section software-section">
+            <div class="section-header">
+                <h2>DOMINIO DE SOFTWARE</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="software-grid">
+                <div class="software-card">
+                    <div class="software-logo">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <div class="software-info">
+                        <h3>SAP</h3>
+                        <div class="software-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="software-card">
+                    <div class="software-logo">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="software-info">
+                        <h3>CONTPAQi</h3>
+                        <div class="software-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="software-card">
+                    <div class="software-logo">
+                        <i class="fas fa-file-excel"></i>
+                    </div>
+                    <div class="software-info">
+                        <h3>Microsoft Excel</h3>
+                        <div class="software-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="software-card">
+                    <div class="software-logo">
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                    <div class="software-info">
+                        <h3>Microsoft Word</h3>
+                        <div class="software-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="software-card">
+                    <div class="software-logo">
+                        <i class="fas fa-file-powerpoint"></i>
+                    </div>
+                    <div class="software-info">
+                        <h3>PowerPoint</h3>
+                        <div class="software-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="software-card">
+                    <div class="software-logo">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="software-info">
+                        <h3>Outlook</h3>
+                        <div class="software-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="software-card">
+                    <div class="software-logo">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="software-info">
+                        <h3>Teams</h3>
+                        <div class="software-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="software-card">
+                    <div class="software-logo">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="software-info">
+                        <h3>OneDrive</h3>
+                        <div class="software-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-contact">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-phone"></i> +52-477-274-1459</p>
+                <p><i class="fas fa-envelope"></i> angcinavarro@hotmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> León, Guanajuato, México</p>
+            </div>
+            
+                       
+            <div class="footer-credits">
+                <p>&copy; 2024 Angélica Navarro. Todos los derechos reservados.</p>
+                <p>Diseñado con pasión por el comercio internacional.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Preloader
+    window.addEventListener('load', function() {
+        const preloader = document.querySelector('.preloader');
+        setTimeout(() => {
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        }, 1000);
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            // Update active link
+            document.querySelectorAll('.nav-link').forEach(navLink => {
+                navLink.classList.remove('active');
+            });
+            this.classList.add('active');
+            
+            // Scroll to section
+            window.scrollTo({
+                top: targetSection.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Highlight active navigation item based on scroll position
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section');
+        let currentSection = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (pageYOffset >= (sectionTop - 150)) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+        
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // Animate skill bars on scroll
+    function animateSkillBars() {
+        const skillBars = document.querySelectorAll('.skill-progress');
+        skillBars.forEach(bar => {
+            const level = bar.getAttribute('data-level');
+            bar.style.width = `${level}%`;
+        });
+    }
+
+    // Intersection Observer for skill bars
+    const skillsSection = document.querySelector('.skills-section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateSkillBars();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    if (skillsSection) {
+        observer.observe(skillsSection);
+    }
+
+    // Hover effects for name title
+    const nameTitle = document.querySelector('.name-title');
+    if (nameTitle) {
+        nameTitle.addEventListener('mouseenter', function() {
+            const letters = this.textContent.split('');
+            this.textContent = '';
+            
+            letters.forEach((letter, idx) => {
+                const span = document.createElement('span');
+                span.textContent = letter;
+                span.style.transition = `transform ${0.1 * idx}s ease, color 0.3s ease`;
+                this.appendChild(span);
+                
+                setTimeout(() => {
+                    span.style.transform = 'translateY(-5px)';
+                    if (letter === ' ') span.style.transform = 'none';
+                }, 10);
+            });
+        });
+        
+        nameTitle.addEventListener('mouseleave', function() {
+            const spans = this.querySelectorAll('span');
+            
+            spans.forEach((span, idx) => {
+                setTimeout(() => {
+                    span.style.transform = 'translateY(0)';
+                }, 0.1 * idx * 100);
+            });
+            
+            setTimeout(() => {
+                this.innerHTML = this.textContent;
+            }, spans.length * 100 + 100);
+        });
+    }
+
+    // Floating animation for decoration circles
+    const blueCircle = document.querySelector('.blue-circle');
+    const whiteCircle = document.querySelector('.white-circle');
+    
+    function floatAnimation() {
+        if (blueCircle && whiteCircle) {
+            const time = Date.now() * 0.001;
+            const blueY = Math.sin(time * 0.5) * 20;
+            const blueRotate = Math.sin(time * 0.3) * 10;
+            const whiteY = Math.sin(time * 0.7) * 15;
+            const whiteRotate = Math.sin(time * 0.4) * 8;
+            
+            blueCircle.style.transform = `translateY(${blueY}px) rotate(${blueRotate}deg)`;
+            whiteCircle.style.transform = `translateY(${whiteY}px) rotate(${whiteRotate}deg)`;
+            
+            requestAnimationFrame(floatAnimation);
+        }
+    }
+    
+    floatAnimation();
+
+    // Section hover effects
+    document.querySelectorAll('.section').forEach(section => {
+        section.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
+            this.querySelector('.section-line').style.width = '100px';
+        });
+        
+        section.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            this.querySelector('.section-line').style.width = '80px';
+        });
+    });
+
+    // Achievement cards animation
+    document.querySelectorAll('.achievement-card').forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1}s`;
+    });
+
+    // Course cards animation
+    document.querySelectorAll('.course-card').forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1}s`;
+    });
+
+    // Software cards animation
+    document.querySelectorAll('.software-card').forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.05}s`;
+    });
+
+    // Print button functionality
+    const printButton = document.createElement('button');
+    printButton.innerHTML = '<i class="fas fa-print"></i> Imprimir CV';
+    printButton.className = 'print-button';
+    printButton.addEventListener('click', function() {
+        window.print();
+    });
+    document.body.appendChild(printButton);
+
+    // Add print styles
+    const printStyles = document.createElement('style');
+    printStyles.textContent = `
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            .main-content, .main-content * {
+                visibility: visible;
+            }
+            .main-content {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                box-shadow: none;
+            }
+            .section {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            .print-button {
+                display: none;
+            }
+            .header {
+                background: #2c3e50 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    `;
+    document.head.appendChild(printStyles);
+});
+
+// Add print button styles
+const printButtonStyles = document.createElement('style');
+printButtonStyles.textContent = `
+    .print-button {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: var(--secondary-blue);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        z-index: 99;
+        transition: all 0.3s ease;
+    }
+    .print-button:hover {
+        background-color: var(--accent-blue);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+    .print-button i {
+        font-size: 1.2rem;
+    }
+`;
+document.head.appendChild(printButtonStyles);
+
+</script>
+
+</body>
+</html>
